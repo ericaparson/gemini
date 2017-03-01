@@ -1,0 +1,7 @@
+<h1>Lamps</h1>
+
+<ul>
+<% @lamps.each do |lamp| %>
+  <li><%= link_to lamp.name, lamp %></li>
+<% end %>
+</ul>
