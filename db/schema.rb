@@ -12,7 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170301204911) do
 
-  create_table "lamps", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
+
+  create_table "lamps", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.integer  "red"
     t.integer  "green"
